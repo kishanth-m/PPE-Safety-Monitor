@@ -11,14 +11,14 @@ import os
 def print_banner():
     """Display a welcome banner."""
     print("\n" + "=" * 70)
-    print("  🏭 AI-BASED PPE COMPLIANCE & SAFETY MONITORING SYSTEM 🏭")
+    print("   AI-BASED PPE COMPLIANCE & SAFETY MONITORING SYSTEM 🏭")
     print("=" * 70)
     print("  Hackathon 2026 - Real-time Safety Monitoring Demo")
     print("=" * 70 + "\n")
 
 def check_dependencies():
     """Check if required packages are installed."""
-    print("🔍 Checking dependencies...")
+    print(" Checking dependencies...")
     
     required_packages = {
         'cv2': 'opencv-python',
@@ -37,17 +37,17 @@ def check_dependencies():
             missing.append(package)
     
     if missing:
-        print("\n❌ Missing dependencies detected!")
+        print("\n Missing dependencies detected!")
         print(f"   Please run: pip install {' '.join(missing)}")
         print("   Or: pip install -r requirements.txt\n")
         return False
     
-    print("✅ All dependencies installed!\n")
+    print(" All dependencies installed!\n")
     return True
 
 def check_camera():
     """Check if camera is available."""
-    print("📹 Checking camera availability...")
+    print(" Checking camera availability...")
     try:
         import cv2
         cap = cv2.VideoCapture(0)
@@ -55,18 +55,18 @@ def check_camera():
             ret, _ = cap.read()
             cap.release()
             if ret:
-                print("✅ Camera is working!\n")
+                print(" Camera is working!\n")
                 return True
-        print("⚠️  Camera might not be available")
+        print("  Camera might not be available")
         print("   Make sure no other app is using it\n")
         return False
     except Exception as e:
-        print(f"⚠️  Camera check failed: {e}\n")
+        print(f"  Camera check failed: {e}\n")
         return False
 
 def show_demo_tips():
     """Display helpful demo tips."""
-    print("💡 DEMO TIPS:")
+    print(" DEMO TIPS:")
     print("=" * 70)
     print("1. Position yourself clearly in front of the camera")
     print("2. Ensure good lighting for better detection")
@@ -78,14 +78,14 @@ def show_demo_tips():
 
 def show_controls():
     """Display control information."""
-    print("🎮 CONTROLS:")
+    print(" CONTROLS:")
     print("=" * 70)
     print("  Q or q  →  Quit the application")
     print("=" * 70 + "\n")
 
 def show_features():
     """Display system features."""
-    print("⚡ FEATURES:")
+    print(" FEATURES:")
     print("=" * 70)
     print("  ✓ Real-time PPE detection using YOLOv8")
     print("  ✓ Visual violation warnings on screen")
@@ -112,7 +112,7 @@ def main():
     show_controls()
     
     # Prompt to start
-    print("🚀 Ready to start the PPE Safety Monitor!")
+    print(" Ready to start the PPE Safety Monitor!")
     input("   Press ENTER to begin... ")
     print("\n")
     
@@ -123,7 +123,7 @@ def main():
     except KeyboardInterrupt:
         print("\n\n👋 Demo cancelled by user. Goodbye!")
     except Exception as e:
-        print(f"\n\n❌ Error running detector: {e}")
+        print(f"\n\n Error running detector: {e}")
         print("   Check the error message above for details.\n")
         sys.exit(1)
 
