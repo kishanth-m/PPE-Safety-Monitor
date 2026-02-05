@@ -16,15 +16,15 @@ print("Press 'Q' to quit\n")
 cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
-    print("❌ ERROR: Cannot access webcam!")
+    print(" ERROR: Cannot access webcam!")
     print("   Possible reasons:")
     print("   - Camera is being used by another application")
     print("   - Camera permissions not granted")
     print("   - No camera connected")
     sys.exit(1)
 
-print("✅ Camera opened successfully!")
-print("✅ Creating window...")
+print(" Camera opened successfully!")
+print(" Creating window...")
 
 # Create window with specific properties
 window_name = 'Camera Test - Press Q to Quit'
@@ -34,9 +34,9 @@ cv2.resizeWindow(window_name, 800, 600)
 # Try to make window topmost
 try:
     cv2.setWindowProperty(window_name, cv2.WND_PROP_TOPMOST, 1)
-    print("✅ Window set to topmost")
+    print(" Window set to topmost")
 except:
-    print("⚠️  Could not set window to topmost (this is OK)")
+    print("  Could not set window to topmost (this is OK)")
 
 print("\n" + "=" * 60)
 print("  LOOK FOR THE CAMERA WINDOW!")
@@ -50,7 +50,7 @@ while True:
     ret, frame = cap.read()
     
     if not ret:
-        print("❌ ERROR: Failed to read frame from camera!")
+        print(" ERROR: Failed to read frame from camera!")
         break
     
     frame_count += 1
@@ -69,7 +69,7 @@ while True:
     # Check for 'Q' key
     key = cv2.waitKey(1) & 0xFF
     if key == ord('q') or key == ord('Q'):
-        print(f"\n✅ Test complete! Processed {frame_count} frames.")
+        print(f"\n Test complete! Processed {frame_count} frames.")
         break
 
 # Clean up
